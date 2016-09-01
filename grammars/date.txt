@@ -1,0 +1,365 @@
+metadata                        -> datetimeTerm
+
+datetimeTerm                    -> datetimeGeneralTerm
+datetimeTerm                    -> datetimeTravelTerm
+
+datetimeGeneralTerm             -> datetimeElementTerm
+datetimeGeneralTerm             -> datetimeAlternativeElementTerm
+datetimeGeneralTerm             -> datetimeGroupElementTerm
+
+datetimeAlternativeElementTerm  -> datetimeElementTerm alternativeItem datetimeElementTerm
+datetimeGroupElementTerm        -> datetimeElementTerm groupItem datetimeElementTerm
+
+datetimeElementTerm             -> dateTerm
+datetimeElementTerm             -> hourTerm
+datetimeElementTerm             -> dateTerm hourTerm
+datetimeElementTerm             -> hourTerm dateTerm
+
+datetimeTravelTerm              -> departureDateTerm
+datetimeTravelTerm              -> returnDateTerm
+datetimeTravelTerm              -> departureDateTerm returnDateTerm
+datetimeTravelTerm              -> returnDateTerm departureDateTerm
+datetimeTravelTerm              -> departureDateTerm groupItem returnDateTerm
+
+departureDateTerm               -> departureItem datetimeGeneralTerm
+returnDateTerm                  -> returnItem datetimeGeneralTerm
+
+dateTerm                        -> unmodifiedDateTerm
+dateTerm                        -> modifiedDateTerm
+dateTerm                        -> vectorDateTerm
+dateTerm                        -> urgencyDateTerm
+dateTerm                        -> indeterminateDateTerm
+
+hourTerm                        -> unmodifiedHourTerm
+hourTerm                        -> modifiedHourTerm
+hourTerm                        -> vectorHourTerm
+hourTerm                        -> indeterminateHourTerm
+
+unmodifiedHourTerm              -> numericHourTerm
+unmodifiedHourTerm              -> hourNameTerm
+unmodifiedHourTerm              -> lunchTerm
+unmodifiedHourTerm              -> dayPartTerm
+
+unmodifiedDateTerm              -> calendarDateTerm
+unmodifiedDateTerm              -> dayOfWeekTerm
+unmodifiedDateTerm              -> dayAdverbTerm
+unmodifiedDateTerm              -> feastTerm
+unmodifiedDateTerm              -> eventTerm
+
+modifiedDateTerm                -> beforeDateTerm
+modifiedDateTerm                -> afterDateTerm
+modifiedDateTerm                -> approximativeDateTerm
+modifiedDateTerm                -> negativeDateTerm
+modifiedDateTerm                -> constraintDateTerm
+
+modifiedHourTerm                -> beforeHourTerm
+modifiedHourTerm                -> afterHourTerm
+modifiedHourTerm                -> currentHourTerm
+modifiedHourTerm                -> approximativeHourTerm
+modifiedHourTerm                -> negativeHourTerm
+modifiedHourTerm                -> constraintHourTerm
+
+beforeDateTerm                  -> beforeItem unmodifiedDateTerm
+afterDateTerm                   -> afterItem unmodifiedDateTerm
+approximativeDateTerm           -> approximativeItem unmodifiedDateTerm
+negativeDateTerm                -> negativeItem unmodifiedDateTerm
+constraintDateTerm              -> constraintItem unmodifiedDateTerm
+
+beforeHourTerm                  -> beforeItem unmodifiedHourTerm
+afterHourTerm                   -> afterItem unmodifiedHourTerm
+currentHourTerm                 -> currentItem unmodifiedHourTerm
+approximativeHourTerm           -> approximativeItem unmodifiedHourTerm
+negativeHourTerm                -> negativeItem unmodifiedHourTerm
+constraintHourTerm              -> constraintItem unmodifiedHourTerm
+
+vectorDateTerm                  -> futureVectorDateTerm
+vectorDateTerm                  -> pastVectorDateTerm
+
+vectorHourTerm                  -> futureVectorHourTerm
+vectorHourTerm                  -> pastVectorHourTerm
+
+calendarDateTerm                -> dayValueItem
+calendarDateTerm                -> dayValueItem monthValueItem
+calendarDateTerm                -> dayValueItem monthValueItem yearValueItem
+calendarDateTerm                -> dayValueItem yearValueItem
+calendarDateTerm                -> dayOfWeekTerm nextItem
+calendarDateTerm                -> dayOfWeekTerm dayValueItem
+calendarDateTerm                -> dayOfWeekTerm dayValueItem monthValueItem
+calendarDateTerm                -> dayOfWeekTerm dayValueItem monthValueItem yearValueItem
+calendarDateTerm                -> ordinalItem dayOfWeekTerm monthValueItem
+calendarDateTerm                -> ordinalItem dayOfWeekTerm monthValueItem yearValueItem
+
+dayOfWeekTerm                   -> firstDayOfWeekItem
+dayOfWeekTerm                   -> secondDayOfWeekItem
+dayOfWeekTerm                   -> thirdDayOfWeekItem
+dayOfWeekTerm                   -> fourthDayOfWeekItem
+dayOfWeekTerm                   -> fifthDayOfWeekItem
+dayOfWeekTerm                   -> sixthDayOfWeekItem
+dayOfWeekTerm                   -> seventhDayOfWeekItem
+
+dayAdverbTerm                   -> tomorrowItem
+dayAdverbTerm                   -> todayItem
+dayAdverbTerm                   -> yesterdayItem
+dayAdverbTerm                   -> dayAfterTomorrowItem
+
+feastTerm                       -> relativeFeastTerm
+feastTerm                       -> absoluteFeastTerm
+
+absoluteFeastTerm               -> christmasDayItem
+absoluteFeastTerm               -> christmasDayItem yearValueItem
+                                
+absoluteFeastTerm               -> womenDayItem
+absoluteFeastTerm               -> womenDayItem yearValueItem
+                                
+absoluteFeastTerm               -> workDayItem
+absoluteFeastTerm               -> workDayItem yearValueItem
+                                
+absoluteFeastTerm               -> nationalDayItem
+absoluteFeastTerm               -> nationalDayItem yearValueItem
+                                
+absoluteFeastTerm               -> valentineDayItem
+absoluteFeastTerm               -> valentineDayItem yearValueItem
+                                
+absoluteFeastTerm               -> stpatrickDayItem
+absoluteFeastTerm               -> stpatrickDayItem yearValueItem
+                                
+absoluteFeastTerm               -> musicDayItem
+absoluteFeastTerm               -> musicDayItem yearValueItem
+                                
+absoluteFeastTerm               -> halloweenDayItem
+absoluteFeastTerm               -> halloweenDayItem yearValueItem
+
+absoluteFeastTerm               -> newYearEveDayItem
+absoluteFeastTerm               -> newYearEveDayItem yearValueItem
+                                
+absoluteFeastTerm               -> newYearDayItem
+absoluteFeastTerm               -> newYearDayItem yearValueItem
+                                
+absoluteFeastTerm               -> toussaintDayItem
+absoluteFeastTerm               -> toussaintDayItem yearValueItem
+                                
+absoluteFeastTerm               -> armisticeDayItem
+absoluteFeastTerm               -> armisticeDayItem yearValueItem
+                                
+absoluteFeastTerm               -> assomptionDayItem
+absoluteFeastTerm               -> assomptionDayItem yearValueItem
+                                
+relativeFeastTerm               -> easterDayItem
+relativeFeastTerm               -> easterDayItem yearValueItem
+                                
+relativeFeastTerm               -> grandmotherDayItem
+relativeFeastTerm               -> grandmotherDayItem yearValueItem
+
+relativeFeastTerm               -> motherDayItem
+relativeFeastTerm               -> motherDayItem yearValueItem
+                                
+relativeFeastTerm               -> fatherDayItem
+relativeFeastTerm               -> fatherDayItem yearValueItem
+                                
+relativeFeastTerm               -> carnivalDayItem
+relativeFeastTerm               -> carnivalDayItem yearValueItem
+                                
+relativeFeastTerm               -> easterMondayDayItem
+relativeFeastTerm               -> easterMondayDayItem yearValueItem
+                                
+relativeFeastTerm               -> ascensionDayItem
+relativeFeastTerm               -> ascensionDayItem yearValueItem
+                                
+relativeFeastTerm               -> palmSundayDayItem
+relativeFeastTerm               -> palmSundayDayItem yearValueItem
+                                
+relativeFeastTerm               -> pentecostDayItem
+relativeFeastTerm               -> pentecostDayItem yearValueItem
+                                
+relativeFeastTerm               -> goodFridayItem
+relativeFeastTerm               -> goodFridayItem yearValueItem
+
+eventTerm                       -> schoolStartItem
+
+futureVectorDateTerm            -> futureVectorPreposition distanceVectorDateTerm
+pastVectorDateTerm              -> pastVectorPreposition distanceVectorDateTerm
+
+futureVectorHourTerm            -> futureVectorPreposition distanceVectorHourTerm
+pastVectorHourTerm              -> pastVectorPreposition distanceVectorHourTerm
+
+distanceVectorDateTerm          -> numeralItem dayUnitItem
+distanceVectorDateTerm          -> numeralItem weekUnitItem
+distanceVectorDateTerm          -> numeralItem monthUnitItem
+distanceVectorDateTerm          -> numeralItem yearUnitItem
+
+distanceVectorHourTerm          -> numeralItem hourUnitItem
+
+urgencyDateTerm                 -> urgencyItem
+
+indeterminateDateTerm           -> knownVerbItem negationItem whenItem
+
+numericHourTerm                 -> hourValueItem hourUnitItem
+numericHourTerm                 -> hourValueItem hourUnitItem minuteValueItem
+numericHourTerm                 -> hourValueItem hourUnitItem halfHourItem
+numericHourTerm                 -> hourValueItem hourUnitItem quarterToHourItem
+numericHourTerm                 -> hourValueItem hourUnitItem quarterPastHourItem
+numericHourTerm                 -> hourLetterItem hourUnitItem
+numericHourTerm                 -> hourLetterItem hourUnitItem halfHourItem
+numericHourTerm                 -> hourLetterItem hourUnitItem quarterToHourItem
+numericHourTerm                 -> hourLetterItem hourUnitItem quarterPastHourItem
+
+lunchTerm                       -> breakfastTimeItem 
+lunchTerm                       -> lunchTimeItem
+lunchTerm                       -> teaTimeItem
+lunchTerm                       -> dinnerTimeItem
+lunchTerm                       -> happyHourItem
+
+hourNameTerm                    -> midnightItem
+hourNameTerm                    -> middayItem
+hourNameTerm                    -> midnightItem halfHourItem
+hourNameTerm                    -> midnightItem quarterToHourItem
+hourNameTerm                    -> midnightItem quarterPastHourItem
+hourNameTerm                    -> middayItem halfHourItem
+hourNameTerm                    -> middayItem quarterToHourItem
+hourNameTerm                    -> middayItem quarterPastHourItem
+
+dayPartTerm                     -> morningTerm
+dayPartTerm                     -> aftertnoonTerm
+dayPartTerm                     -> eveningTerm
+dayPartTerm                     -> nightTerm
+                                
+morningTerm                     -> fullMorningTerm
+morningTerm                     -> startMorningTerm
+morningTerm                     -> midMorningTerm
+morningTerm                     -> endMorningTerm
+                                
+fullMorningTerm                 -> morningItem
+startMorningTerm                -> startItem morningItem
+midMorningTerm                  -> midItem morningItem
+endMorningTerm                  -> endItem morningItem
+                                
+aftertnoonTerm                  -> fullAfternoonTerm
+aftertnoonTerm                  -> midAfternoonTerm
+aftertnoonTerm                  -> startAftertnoonTerm
+aftertnoonTerm                  -> endAftertnoonTerm
+                                
+fullAfternoonTerm               -> aftertnoonItem
+startAftertnoonTerm             -> startItem aftertnoonItem
+midAfternoonTerm                -> midItem aftertnoonItem
+endAftertnoonTerm               -> endItem aftertnoonItem
+
+eveningTerm                     -> fullEveningTerm
+eveningTerm                     -> startEveningTerm
+eveningTerm                     -> midEveningTerm
+eveningTerm                     -> endEveningTerm
+
+fullEveningTerm                 -> eveningItem
+startEveningTerm                -> startItem eveningItem
+startEveningTerm                -> startOrdinalEveningItem partItem eveningItem
+midEveningTerm                  -> midItem eveningItem
+endEveningTerm                  -> endItem eveningItem
+endEveningTerm                  -> endOrdinalEveningItem partItem eveningItem
+
+nightTerm                       -> fullNightTerm
+nightTerm                       -> startNightTerm
+nightTerm                       -> midNightTerm
+nightTerm                       -> endNightTerm
+
+fullNightTerm                   -> nightItem
+startNightTerm                  -> startItem nightItem
+midNightTerm                    -> midItem nightItem
+endNightTerm                    -> endItem nightItem
+
+christmasDayItem                -> "Noël"
+womenDayItem                    -> "journée de la femme"
+workDayItem                     -> "fête du travail"
+nationalDayItem                 -> "fête nationale"
+valentineDayItem                -> "Saint-Valentin"
+stpatrickDayItem                -> "Saint-Patrick"
+musicDayItem                    -> "fête de la musique"
+halloweenDayItem                -> "Halloween"
+newYearEveDayItem               -> "Nouvel An"
+newYearDayItem                  -> "jour de l'An"
+toussaintDayItem                -> "Toussaint"
+armisticeDayItem                -> "armistice"
+assomptionDayItem               -> "Assomption"
+
+easterDayItem                   -> "Pâques"
+grandmotherDayItem              -> "fête des grands-mères"
+motherDayItem                   -> "fête des mères"
+fatherDayItem                   -> "fête des pères"
+carnivalDayItem                 -> "Carnaval" | "mardi gras"
+easterMondayDayItem             -> "lundi de Pâques"
+ascensionDayItem                -> "Ascension"
+palmSundayDayItem               -> "Rameaux" | "fête des Rameaux"
+pentecostDayItem                -> "Pentecôte"
+goodFridayItem                  -> "vendredi saint"
+
+schoolStartItem                 -> "rentrée"
+                                
+firstDayOfWeekItem              -> "lundi"
+secondDayOfWeekItem             -> "mardi"
+thirdDayOfWeekItem              -> "mercredi"
+fourthDayOfWeekItem             -> "jeudi"
+fifthDayOfWeekItem              -> "vendredi"
+sixthDayOfWeekItem              -> "samedi"
+seventhDayOfWeekItem            -> "dimanche"
+                                
+morningItem                     -> "matin" | "matinée"
+aftertnoonItem                  -> "après-midi"
+eveningItem                     -> "soirée" | "soir"
+nightItem                       -> "nuit"
+
+minuteValueItem                 -> "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | "21" | "22" | "23" | "24" | "25" | "26" | "27" | "28" | "29" | "30" | "31" | "32" | "33" | "34" | "35" | "36" | "37" | "38" | "39" | "40" | "41" | "42" | "43" | "44" | "45" | "46" | "47" | "48" | "49" | "50" | "51" | "52" | "53" | "54" | "55" | "56" | "57" | "58" | "59"
+hourValueItem                   -> "00" | "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | "21" | "22" | "23"
+hourLetterItem                  -> "une" | "deux" | "trois" | "quatre" | "cinq" | "six" | "sept" | "huit" | "neuf" | "dix"
+dayValueItem                    -> "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "1" | "1er" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | "21" | "22" | "23" | "24" | "25" | "26" | "27" | "28" | "29" | "30" | "31" 
+yearValueItem                   -> "2015" | "2016" | "2017"
+monthValueItem                  -> "janvier" | "février" | "mars" | "avril" | "mai" | "juin" | "juillet" | "août" | "septembre" | "octobre" | "novembre" | "décembre" | "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "10" | "11" | "12"
+ordinalItem                     -> "premier" | "deuxième" | "troisième" | "quatrième" | "dernier"
+numeralItem                     -> "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | "21" | "22" | "23" | "24" | "25" | "26" | "27" | "28" | "29" | "30" | "31" | "32" | "33" | "34" | "35" | "36" | "37" | "38" | "39" | "40" | "41" | "42" | "43" | "44" | "45" | "46" | "47" | "48" | "49" | "50" | "51" | "52" | "53" | "54" | "55" | "56" | "57" | "58" | "59"
+
+hourUnitItem                    -> "heure" | "h"
+dayUnitItem                     -> "jour"
+weekUnitItem                    -> "semaine"
+monthUnitItem                   -> "mois"
+yearUnitItem                    -> "an" | "année"
+
+tomorrowItem                    -> "demain"
+todayItem                       -> "aujourd'hui"
+yesterdayItem                   -> "hier"
+dayAfterTomorrowItem            -> "après-demain"
+
+middayItem                      -> "midi"
+midnightItem                    -> "minuit"
+happyHourItem                   -> "happy hour"
+hourLabelItem                   -> "heure"
+halfHourItem                    -> "et demi"
+quarterToHourItem               -> "moins le quart"
+quarterPastHourItem             -> "et quart"
+breakfastTimeItem               -> "petit-déjeuner"
+lunchTimeItem                   -> "déjeuner"
+teaTimeItem                     -> "goûter"
+dinnerTimeItem                  -> "souper" | "dîner"
+
+urgencyItem                     -> "urgence" | "urgent" | "maintenant" | "asap"
+
+departureItem                   -> "partir" | "aller" | "départ"
+returnItem                      -> "revenir" | "retour"
+
+beforeItem                      -> "avant"
+afterItem                       -> "après"
+approximativeItem               -> "vers" | "alentour"
+negativeItem                    -> "sauf"
+constraintItem                  -> "uniquement"
+currentItem                     -> "ce"
+alternativeItem                 -> "ou" | "/"
+groupItem                       -> "et"
+nextItem                        -> "prochain"
+startItem                       -> "début"
+midItem                         -> "milieu"
+endItem                         -> "fin"
+partItem                        -> "partie"
+startOrdinalEveningItem         -> "premier"
+endOrdinalEveningItem           -> "dernier" | "deuxième"
+pastVectorPreposition           -> "il y a"
+futureVectorPreposition         -> "dans"
+knownVerbItem                   -> "savoir"
+negationItem                    -> "pas"
+whenItem                        -> "quand"
+

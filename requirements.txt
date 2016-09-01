@@ -1,0 +1,6 @@
+nltk==3.2.1
+cherrypy==6.0.1
+dateparser==0.3.5
+rollbar==0.13.2
+treetaggerwrapper==2.2.3
+unicodecsv==0.14.1
