@@ -39,7 +39,12 @@ bin/dev.sh
 bin/dev_server.sh
 ```
 
-It listen on port 8080
+It listen on port 8080. Wait for POST calls on `/api/v1/metadata` and wait for 2 args:
+
+* 'message' : the text to analyse
+* 'name' : the name of the metadata (either date or duration)
+
+There's an authentication mechanism that is reading the 'Http-Auth' header en check that it contains the same thing as in https://github.com/blackbirdco/time_extract/blob/master/secrets/config.yml
 
 ## Testing
 
