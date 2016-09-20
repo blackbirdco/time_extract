@@ -10,7 +10,7 @@ Le script utilise une fonction avec 2 paramètres :
 - a metadata
 
 ```sh
-python SEM.py message metadata1...
+python SEM.py message metadata
 ```
 
 Example:
