@@ -1,78 +1,100 @@
-metadata                            -> durationTerm
+degreeTerm                          : {<lessItem>}
+degreeTerm                          : {<moreItem>}
 
-durationTerm                        -> unmodifiedDurationTerm
-durationTerm                        -> modifiedDurationTerm
+durationCenturyElementTerm          : {<numeralItem><centuryNameItem><halfItem>}
+durationCenturyElementTerm          : {<numeralItem><centuryNameItem>}
 
-unmodifiedDurationTerm              -> continousDurationTerm
-unmodifiedDurationTerm              -> intervalDurationTerm
+durationYearElementTerm             : {<numeralItem><yearNameItem><halfItem>}
+durationYearElementTerm             : {<numeralItem><yearNameItem>}
 
-modifiedDurationTerm                -> approximativeDurationTerm
+durationSemesterElementTerm         : {<numeralItem><semesterNameItem><halfItem>}
+durationSemesterElementTerm         : {<numeralItem><semesterNameItem>}
 
-continousDurationTerm               -> numeralItem minuteUnitItem
-continousDurationTerm               -> numeralItem hourUnitItem
-continousDurationTerm               -> numeralItem dayUnitItem
-continousDurationTerm               -> numeralItem weekendUnitItem
-continousDurationTerm               -> numeralItem weekUnitItem
-continousDurationTerm               -> numeralItem monthUnitItem
-continousDurationTerm               -> numeralItem monthUnitItem halfItem
-continousDurationTerm               -> numeralItem semesterUnitItem
-continousDurationTerm               -> numeralItem quarterUnitItem
-continousDurationTerm               -> numeralItem yearUnitItem
-continousDurationTerm               -> numeralItem seasonUnitItem
+durationQuarterElementTerm          : {<numeralItem><quarterNameItem><halfItem>}
+durationQuarterElementTerm          : {<numeralItem><quarterNameItem>}
 
-intervalDurationTerm                -> limitedIntervalDurationTerm
-intervalDurationTerm                -> minimumLimitedIntervalDurationTerm
-intervalDurationTerm                -> maximumLimitedIntervalDurationTerm
+durationMonthElementTerm            : {<numeralItem><monthNameItem><halfItem>}
+durationMonthElementTerm            : {<numeralItem><monthNameItem>}
 
-limitedIntervalDurationTerm         -> minimumLimitedIntervalDurationTerm maximumLimitedIntervalDurationTerm minuteUnitItem
-limitedIntervalDurationTerm         -> minimumLimitedIntervalDurationTerm maximumLimitedIntervalDurationTerm hourUnitItem
-limitedIntervalDurationTerm         -> minimumLimitedIntervalDurationTerm maximumLimitedIntervalDurationTerm dayUnitItem
-limitedIntervalDurationTerm         -> minimumLimitedIntervalDurationTerm maximumLimitedIntervalDurationTerm weekendUnitItem
-limitedIntervalDurationTerm         -> minimumLimitedIntervalDurationTerm maximumLimitedIntervalDurationTerm weekUnitItem
-limitedIntervalDurationTerm         -> minimumLimitedIntervalDurationTerm maximumLimitedIntervalDurationTerm monthUnitItem
-limitedIntervalDurationTerm         -> minimumLimitedIntervalDurationTerm maximumLimitedIntervalDurationTerm semesterUnitItem
-limitedIntervalDurationTerm         -> minimumLimitedIntervalDurationTerm maximumLimitedIntervalDurationTerm quarterUnitItem
-limitedIntervalDurationTerm         -> minimumLimitedIntervalDurationTerm maximumLimitedIntervalDurationTerm yearUnitItem
-limitedIntervalDurationTerm         -> minimumLimitedIntervalDurationTerm maximumLimitedIntervalDurationTerm seasonUnitItem
+durationWeekElementTerm             : {<numeralItem><weekNameItem><halfItem>}
+durationWeekElementTerm             : {<numeralItem><weekNameItem>}
 
-minimumLimitedIntervalDurationTerm  -> minimumItem numeralItem hourUnitItem
-minimumLimitedIntervalDurationTerm  -> minimumItem numeralItem dayUnitItem
-minimumLimitedIntervalDurationTerm  -> minimumItem numeralItem weekendUnitItem
-minimumLimitedIntervalDurationTerm  -> minimumItem numeralItem weekUnitItem
-minimumLimitedIntervalDurationTerm  -> minimumItem numeralItem monthUnitItem
-minimumLimitedIntervalDurationTerm  -> minimumItem numeralItem semesterUnitItem
-minimumLimitedIntervalDurationTerm  -> minimumItem numeralItem quarterUnitItem
-minimumLimitedIntervalDurationTerm  -> minimumItem numeralItem yearUnitItem
-minimumLimitedIntervalDurationTerm  -> minimumItem numeralItem seasonUnitItem
-minimumLimitedIntervalDurationTerm  -> numeralItem
+durationDayElementTerm              : {<numeralItem><dayNameItem><halfItem>}
+durationDayElementTerm              : {<numeralItem><dayNameItem>}
 
-maximumLimitedIntervalDurationTerm  -> maximumItem numeralItem hourUnitItem
-maximumLimitedIntervalDurationTerm  -> maximumItem numeralItem dayUnitItem
-maximumLimitedIntervalDurationTerm  -> maximumItem numeralItem weekendUnitItem
-maximumLimitedIntervalDurationTerm  -> maximumItem numeralItem weekUnitItem
-maximumLimitedIntervalDurationTerm  -> maximumItem numeralItem monthUnitItem
-maximumLimitedIntervalDurationTerm  -> maximumItem numeralItem semesterUnitItem
-maximumLimitedIntervalDurationTerm  -> maximumItem numeralItem quarterUnitItem
-maximumLimitedIntervalDurationTerm  -> maximumItem numeralItem yearUnitItem
-maximumLimitedIntervalDurationTerm  -> maximumItem numeralItem seasonUnitItem
-maximumLimitedIntervalDurationTerm  -> numeralItem
+durationNightElementTerm            : {<numeralItem><nightNameItem><halfItem>}
+durationNightElementTerm            : {<numeralItem><nightNameItem>}
 
-approximativeDurationTerm           -> approximativeItem unmodifiedDurationTerm
+durationHourElementTerm             : {<numeralItem><hourNameItem><halfItem>}
+durationHourElementTerm             : {<numeralItem><hourNameItem>}
 
-minuteUnitItem                      -> "minute"
-hourUnitItem                        -> "heure"
-dayUnitItem                         -> "jour" | "journée"
-weekendUnitItem                     -> "week-end"
-weekUnitItem                        -> "semaine"
-monthUnitItem                       -> "mois"
-semesterUnitItem                    -> "semestre"
-quarterUnitItem                     -> "trimestre"
-yearUnitItem                        -> "an"" | 'année"
-seasonUnitItem                      -> "été"
+durationMinuteElementTerm           : {<numeralItem><minuteNameItem><halfItem>}
+durationMinuteElementTerm           : {<numeralItem><minuteNameItem>}
 
-halfItem                            -> "et demi"
-maximumItem                         -> "moins" | "maximum" | "max" | "inférieur"
-minimumItem                         -> "plus" | "minimum" | "min" | "supérieur"
-approximativeItem                   -> "environ"
+durationSecondElementTerm           : {<numeralItem><secondNameItem><halfItem>}
+durationSecondElementTerm           : {<numeralItem><secondNameItem>}
 
-numeralItem                         -> 'une' | 'deux' | 'trois' | 'quatre' | 'cinq' | 'six' | 'sept' | 'huit' | 'neuf' | 'dix' | '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | '13' | '14' | '15' | '16' | '17' | '18' | '19' | '20' | '21' | '22' | '23' | '24' | '25' | '26' | '27' | '28' | '29' | '30' | '31' | '32' | '33' | '34' | '35' | '36' | '37' | '38' | '39' | '40' | '41' | '42' | '43' | '44' | '45' | '46' | '47' | '48' | '49' | '50' | '51' | '52' | '53' | '54' | '55' | '56' | '57' | '58' | '59' | '60'
+durationElementTerm                 : {<durationCenturyElementTerm>}
+durationElementTerm                 : {<durationYearElementTerm>}
+durationElementTerm                 : {<durationSemesterElementTerm>}
+durationElementTerm                 : {<durationQuarterElementTerm>}
+durationElementTerm                 : {<durationMonthElementTerm>}
+durationElementTerm                 : {<durationWeekElementTerm>}
+durationElementTerm                 : {<durationDayElementTerm>}
+durationElementTerm                 : {<durationNightElementTerm>}
+durationElementTerm                 : {<durationHourElementTerm>}
+durationElementTerm                 : {<durationMinuteElementTerm>}
+durationElementTerm                 : {<durationSecondElementTerm>}
+
+durationAnyTerm                     : {<anyItem><.*>*<numberNameItem><.*>*<monthNameItem>}
+
+durationConstraintTerm              : {<onlyItem><.*>?<durationElementTerm>}
+
+durationApproximativeTerm           : {<durationElementTerm><approximativeItem>}
+durationApproximativeTerm           : {<approximativeItem><durationElementTerm>}
+
+durationApproximativeTerm           : {<aFewItem><centuryNameItem>}
+durationApproximativeTerm           : {<aFewItem><yearNameItem>}
+durationApproximativeTerm           : {<aFewItem><semesterNameItem>}
+durationApproximativeTerm           : {<aFewItem><quarterNameItem>}
+durationApproximativeTerm           : {<aFewItem><monthNameItem>}
+durationApproximativeTerm           : {<aFewItem><weekNameItem>}
+durationApproximativeTerm           : {<aFewItem><dayNameItem>}
+durationApproximativeTerm           : {<aFewItem><nightNameItem>}
+durationApproximativeTerm           : {<aFewItem><hourNameItem>}
+durationApproximativeTerm           : {<aFewItem><minuteNameItem>}
+durationApproximativeTerm           : {<aFewItem><secondNameItem>}
+
+durationGroupElementTerm            : {<durationElementTerm><groupItem><.*>*?<durationElementTerm>}
+
+durationAlternativeElementTerm      : {<numeralItem><alternativeItem><degreeTerm>}
+durationAlternativeElementTerm      : {<durationElementTerm><alternativeItem><degreeTerm>}
+durationAlternativeElementTerm      : {<numeralItem><alternativeItem><.*>*?<durationElementTerm>}
+durationAlternativeElementTerm      : {<durationElementTerm><alternativeItem><.*>*?<durationElementTerm>}
+
+maximumDurationTerm                 : {<durationNameItem><maximumItem><.*>?<durationElementTerm>}
+maximumDurationTerm                 : {<durationElementTerm><maximumItem>}
+maximumDurationTerm                 : {<maximumItem><.*>?<durationElementTerm>}
+maximumDurationTerm                 : {<toItem><durationElementTerm>}
+maximumDurationTerm                 : {<groupItem><durationElementTerm>}
+
+minimumDurationTerm                 : {<durationNameItem><minimumItem><.*>?<durationElementTerm>}
+minimumDurationTerm                 : {<durationElementTerm><minimumItem>}
+minimumDurationTerm                 : {<minimumItem><.*>?<durationElementTerm>}
+minimumDurationTerm                 : {<ofItem|duringItem><numeralItem>}
+minimumDurationTerm                 : {<betweenItem><durationElementTerm>}
+minimumDurationTerm                 : {<betweenItem><numeralItem>}
+
+durationIntervalTerm                : {<minimumDurationTerm><maximumDurationTerm>}
+durationIntervalTerm                : {<maximumDurationTerm>}
+durationIntervalTerm                : {<minimumDurationTerm>}
+
+durationTerm                        : {<durationAnyTerm>}
+durationTerm                        : {<durationConstraintTerm>}
+durationTerm                        : {<durationApproximativeTerm>}
+durationTerm                        : {<durationGroupElementTerm>}
+durationTerm                        : {<durationAlternativeElementTerm>}
+durationTerm                        : {<durationIntervalTerm>}
+durationTerm                        : {<durationElementTerm>}
+
+metadata                            : {<durationTerm>}
