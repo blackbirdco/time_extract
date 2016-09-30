@@ -6,6 +6,8 @@ import treetaggerpoll
 import uuid
 import re
 
+from multiword_expressions_service import MultiwordExpressionsService
+
 treetagger_instances = []
 current_instance = 0
 
@@ -46,7 +48,7 @@ class TreeTaggerWrapper():
         return tags
 
     def kept_words(self):
-        return '[0-9]+|mois|été|asap|h|-ce|m2|m²|min|max|rdc|colloc|coloc|start-up|.*\_'
+        return '[0-9]+|mois|été|asap|h|-ce|m2|m²|min|max|rdc|colloc|coloc|start-up|meublé|paris|.*\_'
 
     def touch_up_results(self, tags):
         for i in range(len(tags)):
@@ -59,16 +61,33 @@ class TreeTaggerWrapper():
 
     def parse(self, message):
         message = self.prepare_message_for_tree_tagger(message)
+        message = self.sanitize_multiword_expressions(message)
         treetagger_output = self.treetagger(message)
         corrected_results = self.touch_up_results(treetagger_output)
       
         return corrected_results
 
+    def sanitize_multiword_expressions(self, message):
+        mwe = MultiwordExpressionsService().load()
+        sanitized_message = message
+
+        for expression, sanitized_expression in mwe.items():
+            if expression in sanitized_message:
+                sanitized_message = sanitized_message.replace(expression, sanitized_expression)
+
+        return sanitized_message
+        # multiword_expressions = regexp_tokenize(new_message, pattern='\S+')
+        # multiword_expressions = ' '.join(multiword_expressions)
+
     def prepare_message_for_tree_tagger(self, message):
         content = message.lower()
-        replace = re.sub(r'([0-9]+)(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)', r'\1 \2', content)
-        replace = re.sub(r'([0-9]+)(h)([0-9]+)', r'\1 \2 \3', replace)
+        replace = re.sub(r'([0-9]+)(janvier|février|fevrier|mars|avril|mai|juin|juillet|août|aout|septembre|octobre|novembre|décembre|decembre)', r'\1 \2', content)
+        replace = re.sub(r'([0-9]+)(m2|m|h|j|jour|jours|mois|semaine|semaines|semestre|semestres|an|ans)', r' \1 \2 ', replace)
         replace = re.sub(r'([0-9]+)([:.])([0-9]+)', r'\1 h \3', replace)
         replace = re.sub(r'(/)', r' \1 ', replace)
-        
+        replace = re.sub(r'(\.)', r' \1 ', replace)
+        replace = re.sub(r'(\-)', r' \1 ', replace)
+        replace = re.sub(r'([0-9]+)(-)([0-9]+)', r' \1 \2 \3', replace)
+        replace = re.sub(r'(d)(un|une)', r' \1 \2 ', replace)
+
         return replace

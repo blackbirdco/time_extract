@@ -1,365 +1,245 @@
-metadata                        -> datetimeTerm
+christmasDayTerm                : {<christmasDayItem><yearValueItem>?}
+womenDayTerm                    : {<womenDayItem><yearValueItem>?}
+workDayTerm                     : {<workDayItem><yearValueItem>?}
+nationalDayTerm                 : {<nationalDayItem><yearValueItem>?}
+valentineDayTerm                : {<valentineDayItem><yearValueItem>?}
+stpatrickDayTerm                : {<stpatrickDayItem><yearValueItem>?}
+musicDayTerm                    : {<musicDayItem><yearValueItem>?}
+halloweenDayTerm                : {<halloweenDayItem><yearValueItem>?}
+newYearEveDayTerm               : {<newYearEveDayItem><yearValueItem>?}
+newYearDayTerm                  : {<newYearDayItem><yearValueItem>?}
+toussaintDayTerm                : {<toussaintDayItem><yearValueItem>?}
+armisticeDayTerm                : {<armisticeDayItem><yearValueItem>?}
+assomptionDayTerm               : {<assomptionDayItem><yearValueItem>?}
+easterDayTerm                   : {<easterDayItem><yearValueItem>?}
+grandmotherDayTerm              : {<grandmotherDayItem><yearValueItem>?}
+motherDayTerm                   : {<motherDayItem><yearValueItem>?}
+fatherDayTerm                   : {<fatherDayItem><yearValueItem>?}
+carnivalDayTerm                 : {<carnivalDayItem><yearValueItem>?}
+easterMondayDayTerm             : {<easterMondayDayItem><yearValueItem>?}
+ascensionDayTerm                : {<ascensionDayItem><yearValueItem>?}
+palmSundayDayTerm               : {<palmSundayDayItem><yearValueItem>?}
+pentecostDayTerm                : {<pentecostDayItem><yearValueItem>?}
+goodFridayTerm                  : {<goodFridayDayItem><yearValueItem>?}
 
-datetimeTerm                    -> datetimeGeneralTerm
-datetimeTerm                    -> datetimeTravelTerm
+feastTerm                       : {<christmasDayTerm>}
+feastTerm                       : {<womenDayTerm>}
+feastTerm                       : {<workDayTerm>}
+feastTerm                       : {<nationalDayTerm>}
+feastTerm                       : {<valentineDayTerm>}
+feastTerm                       : {<stpatrickDayTerm>}
+feastTerm                       : {<musicDayTerm>}
+feastTerm                       : {<halloweenDayTerm>}
+feastTerm                       : {<newYearEveDayTerm>}
+feastTerm                       : {<newYearDayTerm>}
+feastTerm                       : {<toussaintDayTerm>}
+feastTerm                       : {<armisticeDayTerm>}
+feastTerm                       : {<assomptionDayTerm>}
+feastTerm                       : {<easterDayTerm>}
+feastTerm                       : {<grandmotherDayTerm>}
+feastTerm                       : {<motherDayTerm>}
+feastTerm                       : {<fatherDayTerm>}
+feastTerm                       : {<carnivalDayTerm>}
+feastTerm                       : {<easterMondayDayTerm>}
+feastTerm                       : {<ascensionDayTerm>}
+feastTerm                       : {<palmSundayDayTerm>}
+feastTerm                       : {<pentecostDayTerm>}
+feastTerm                       : {<goodFridayDayTerm>}
 
-datetimeGeneralTerm             -> datetimeElementTerm
-datetimeGeneralTerm             -> datetimeAlternativeElementTerm
-datetimeGeneralTerm             -> datetimeGroupElementTerm
+dayAdverbTerm                   : {<tomorrowItem>}
+dayAdverbTerm                   : {<todayItem>}
+dayAdverbTerm                   : {<yesterdayItem>}
+dayAdverbTerm                   : {<dayAfterTomorrowItem>}
 
-datetimeAlternativeElementTerm  -> datetimeElementTerm alternativeItem datetimeElementTerm
-datetimeGroupElementTerm        -> datetimeElementTerm groupItem datetimeElementTerm
+startNightTerm                  : {<startItem><nightItem>}
+midNightTerm                    : {<midItem><nightItem>}
+endNightTerm                    : {<endItem><nightItem>}
+fullNightTerm                   : {<nightItem>}
 
-datetimeElementTerm             -> dateTerm
-datetimeElementTerm             -> hourTerm
-datetimeElementTerm             -> dateTerm hourTerm
-datetimeElementTerm             -> hourTerm dateTerm
+nightTerm                       : {<fullNightTerm>}
+nightTerm                       : {<startNightTerm>}
+nightTerm                       : {<midNightTerm>}
+nightTerm                       : {<endNightTerm>}
 
-datetimeTravelTerm              -> departureDateTerm
-datetimeTravelTerm              -> returnDateTerm
-datetimeTravelTerm              -> departureDateTerm returnDateTerm
-datetimeTravelTerm              -> returnDateTerm departureDateTerm
-datetimeTravelTerm              -> departureDateTerm groupItem returnDateTerm
+startEveningTerm                : {<startItem><eveningItem>}
+startEveningTerm                : {<startOrdinalEveningItem><partItem><eveningItem>}
+midEveningTerm                  : {<midItem><eveningItem>}
+endEveningTerm                  : {<endItem><eveningItem>}
+endEveningTerm                  : {<endOrdinalEveningItem><partItem><eveningItem>}
+fullEveningTerm                 : {<eveningItem>}
 
-departureDateTerm               -> departureItem datetimeGeneralTerm
-returnDateTerm                  -> returnItem datetimeGeneralTerm
+eveningTerm                     : {<fullEveningTerm>}
+eveningTerm                     : {<startEveningTerm>}
+eveningTerm                     : {<midEveningTerm>}
+eveningTerm                     : {<endEveningTerm>}
 
-dateTerm                        -> unmodifiedDateTerm
-dateTerm                        -> modifiedDateTerm
-dateTerm                        -> vectorDateTerm
-dateTerm                        -> urgencyDateTerm
-dateTerm                        -> indeterminateDateTerm
+startAftertnoonTerm             : {<startItem><afternoonItem>}
+midAfternoonTerm                : {<midItem><afternoonItem>}
+endAftertnoonTerm               : {<endItem><afternoonItem>}
+fullAfternoonTerm               : {<afternoonItem>}
 
-hourTerm                        -> unmodifiedHourTerm
-hourTerm                        -> modifiedHourTerm
-hourTerm                        -> vectorHourTerm
-hourTerm                        -> indeterminateHourTerm
+aftertnoonTerm                  : {<fullAfternoonTerm>}
+aftertnoonTerm                  : {<midAfternoonTerm>}
+aftertnoonTerm                  : {<startAftertnoonTerm>}
+aftertnoonTerm                  : {<endAftertnoonTerm>}
 
-unmodifiedHourTerm              -> numericHourTerm
-unmodifiedHourTerm              -> hourNameTerm
-unmodifiedHourTerm              -> lunchTerm
-unmodifiedHourTerm              -> dayPartTerm
+startMorningTerm                : {<startItem><morningItem>}
+midMorningTerm                  : {<midItem><morningItem>}
+endMorningTerm                  : {<endItem><morningItem>}
+fullMorningTerm                 : {<morningItem>}
 
-unmodifiedDateTerm              -> calendarDateTerm
-unmodifiedDateTerm              -> dayOfWeekTerm
-unmodifiedDateTerm              -> dayAdverbTerm
-unmodifiedDateTerm              -> feastTerm
-unmodifiedDateTerm              -> eventTerm
+morningTerm                     : {<fullMorningTerm>}
+morningTerm                     : {<startMorningTerm>}
+morningTerm                     : {<midMorningTerm>}
+morningTerm                     : {<endMorningTerm>}
 
-modifiedDateTerm                -> beforeDateTerm
-modifiedDateTerm                -> afterDateTerm
-modifiedDateTerm                -> approximativeDateTerm
-modifiedDateTerm                -> negativeDateTerm
-modifiedDateTerm                -> constraintDateTerm
+dayPartTerm                     : {<nightTerm>}
+dayPartTerm                     : {<unknown>?<eveningTerm>}
+dayPartTerm                     : {<aftertnoonTerm>}
+dayPartTerm                     : {<morningTerm>}
 
-modifiedHourTerm                -> beforeHourTerm
-modifiedHourTerm                -> afterHourTerm
-modifiedHourTerm                -> currentHourTerm
-modifiedHourTerm                -> approximativeHourTerm
-modifiedHourTerm                -> negativeHourTerm
-modifiedHourTerm                -> constraintHourTerm
+lunchTerm                       : {<breakfastTimeItem>}
+lunchTerm                       : {<lunchTimeItem>}
+lunchTerm                       : {<teaTimeItem>}
+lunchTerm                       : {<dinnerTimeItem>}
+lunchTerm                       : {<happyHourItem>}
 
-beforeDateTerm                  -> beforeItem unmodifiedDateTerm
-afterDateTerm                   -> afterItem unmodifiedDateTerm
-approximativeDateTerm           -> approximativeItem unmodifiedDateTerm
-negativeDateTerm                -> negativeItem unmodifiedDateTerm
-constraintDateTerm              -> constraintItem unmodifiedDateTerm
+hourNameTerm                    : {<middayItem><quarterPastHourItem>}
+hourNameTerm                    : {<middayItem><quarterToHourItem>}
+hourNameTerm                    : {<middayItem><halfHourItem>}
+hourNameTerm                    : {<middayItem>}
+hourNameTerm                    : {<midnightItem><quarterPastHourItem>}
+hourNameTerm                    : {<midnightItem><quarterToHourItem>}
+hourNameTerm                    : {<midnightItem><halfHourItem>}
+hourNameTerm                    : {<midnightItem>}
 
-beforeHourTerm                  -> beforeItem unmodifiedHourTerm
-afterHourTerm                   -> afterItem unmodifiedHourTerm
-currentHourTerm                 -> currentItem unmodifiedHourTerm
-approximativeHourTerm           -> approximativeItem unmodifiedHourTerm
-negativeHourTerm                -> negativeItem unmodifiedHourTerm
-constraintHourTerm              -> constraintItem unmodifiedHourTerm
+numericHourTerm                 : {<numeralItem><hourUnitItem><quarterPastHourItem>}
+numericHourTerm                 : {<numeralItem><hourUnitItem><quarterToHourItem>}
+numericHourTerm                 : {<numeralItem><hourUnitItem><halfHourItem>}
+numericHourTerm                 : {<numeralItem><hourUnitItem><numeralItem>}
+numericHourTerm                 : {<numeralItem><hourUnitItem>}
 
-vectorDateTerm                  -> futureVectorDateTerm
-vectorDateTerm                  -> pastVectorDateTerm
+distanceVectorHourTerm          : {<numeralItem><hourUnitItem>}
 
-vectorHourTerm                  -> futureVectorHourTerm
-vectorHourTerm                  -> pastVectorHourTerm
+distanceVectorDateTerm          : {<numeralItem><dayUnitItem>}
+distanceVectorDateTerm          : {<numeralItem><weekUnitItem>}
+distanceVectorDateTerm          : {<numeralItem><monthUnitItem>}
+distanceVectorDateTerm          : {<numeralItem><yearUnitItem>}
 
-calendarDateTerm                -> dayValueItem
-calendarDateTerm                -> dayValueItem monthValueItem
-calendarDateTerm                -> dayValueItem monthValueItem yearValueItem
-calendarDateTerm                -> dayValueItem yearValueItem
-calendarDateTerm                -> dayOfWeekTerm nextItem
-calendarDateTerm                -> dayOfWeekTerm dayValueItem
-calendarDateTerm                -> dayOfWeekTerm dayValueItem monthValueItem
-calendarDateTerm                -> dayOfWeekTerm dayValueItem monthValueItem yearValueItem
-calendarDateTerm                -> ordinalItem dayOfWeekTerm monthValueItem
-calendarDateTerm                -> ordinalItem dayOfWeekTerm monthValueItem yearValueItem
+nextTerm                        : {<nextItem>}
+yearValueTerm                   : {<yearValueItem>}
+definiteArticleTerm             : {<definiteArticleItem>}
+numeralTerm                     : {<numeralItem>}
 
-dayOfWeekTerm                   -> firstDayOfWeekItem
-dayOfWeekTerm                   -> secondDayOfWeekItem
-dayOfWeekTerm                   -> thirdDayOfWeekItem
-dayOfWeekTerm                   -> fourthDayOfWeekItem
-dayOfWeekTerm                   -> fifthDayOfWeekItem
-dayOfWeekTerm                   -> sixthDayOfWeekItem
-dayOfWeekTerm                   -> seventhDayOfWeekItem
+ordinalTerm                     : {<firstOrdinalItem>}
+ordinalTerm                     : {<secondOrdinalItem>}
+ordinalTerm                     : {<thirthOrdinalItem>}
+ordinalTerm                     : {<fourthOrdinalItem>}
+ordinalTerm                     : {<fifthOrdinalItem>}
 
-dayAdverbTerm                   -> tomorrowItem
-dayAdverbTerm                   -> todayItem
-dayAdverbTerm                   -> yesterdayItem
-dayAdverbTerm                   -> dayAfterTomorrowItem
+monthValueTerm                  : {<firstMonthItem>}
+monthValueTerm                  : {<secondMonthItem>}
+monthValueTerm                  : {<thirthMonthItem>}
+monthValueTerm                  : {<fourthMonthItem>}
+monthValueTerm                  : {<fifthMonthItem>}
+monthValueTerm                  : {<sixthMonthItem>}
+monthValueTerm                  : {<seventhMonthItem>}
+monthValueTerm                  : {<eighthMonthItem>}
+monthValueTerm                  : {<ninthMonthItem>}
+monthValueTerm                  : {<tenthMonthItem>}
+monthValueTerm                  : {<eleventhMonthItem>}
+monthValueTerm                  : {<twelfthMonthItem>}
 
-feastTerm                       -> relativeFeastTerm
-feastTerm                       -> absoluteFeastTerm
+dayOfWeekTerm                   : {<firstDayOfWeekItem>}
+dayOfWeekTerm                   : {<secondDayOfWeekItem>}
+dayOfWeekTerm                   : {<thirdDayOfWeekItem>}
+dayOfWeekTerm                   : {<fourthDayOfWeekItem>}
+dayOfWeekTerm                   : {<fifthDayOfWeekItem>}
+dayOfWeekTerm                   : {<sixthDayOfWeekItem>}
+dayOfWeekTerm                   : {<seventhDayOfWeekItem>}
 
-absoluteFeastTerm               -> christmasDayItem
-absoluteFeastTerm               -> christmasDayItem yearValueItem
-                                
-absoluteFeastTerm               -> womenDayItem
-absoluteFeastTerm               -> womenDayItem yearValueItem
-                                
-absoluteFeastTerm               -> workDayItem
-absoluteFeastTerm               -> workDayItem yearValueItem
-                                
-absoluteFeastTerm               -> nationalDayItem
-absoluteFeastTerm               -> nationalDayItem yearValueItem
-                                
-absoluteFeastTerm               -> valentineDayItem
-absoluteFeastTerm               -> valentineDayItem yearValueItem
-                                
-absoluteFeastTerm               -> stpatrickDayItem
-absoluteFeastTerm               -> stpatrickDayItem yearValueItem
-                                
-absoluteFeastTerm               -> musicDayItem
-absoluteFeastTerm               -> musicDayItem yearValueItem
-                                
-absoluteFeastTerm               -> halloweenDayItem
-absoluteFeastTerm               -> halloweenDayItem yearValueItem
+calendarDateTerm                : {<ordinalTerm><dayOfWeekTerm><.*><monthValueTerm><yearValueTerm>}
+calendarDateTerm                : {<ordinalTerm><dayOfWeekTerm><.*><monthValueTerm>}
+calendarDateTerm                : {<definiteArticleTerm><dayOfWeekTerm><numeralTerm><monthValueTerm><yearValueTerm>}
+calendarDateTerm                : {<definiteArticleTerm><dayOfWeekTerm><numeralTerm><monthValueTerm>}
+calendarDateTerm                : {<definiteArticleTerm><dayOfWeekTerm><numeralTerm>}
+calendarDateTerm                : {<definiteArticleTerm><dayOfWeekTerm>}
+calendarDateTerm                : {<definiteArticleTerm><numeralTerm><monthValueTerm>}
+calendarDateTerm                : {<numeralTerm><monthValueTerm><yearValueTerm>}
+calendarDateTerm                : {<numeralTerm><monthValueTerm>}
+calendarDateTerm                : {<definiteArticleTerm><numeralTerm>}
+calendarDateTerm                : {<dayOfWeekTerm><nextTerm>}
+calendarDateTerm                : {<dayOfWeekTerm><numeralTerm><monthValueTerm><yearValueTerm>}
+calendarDateTerm                : {<dayOfWeekTerm><numeralTerm><monthValueTerm>}
+calendarDateTerm                : {<dayOfWeekTerm><numeralTerm>}
+calendarDateTerm                : {<dayOfWeekTerm>}
 
-absoluteFeastTerm               -> newYearEveDayItem
-absoluteFeastTerm               -> newYearEveDayItem yearValueItem
-                                
-absoluteFeastTerm               -> newYearDayItem
-absoluteFeastTerm               -> newYearDayItem yearValueItem
-                                
-absoluteFeastTerm               -> toussaintDayItem
-absoluteFeastTerm               -> toussaintDayItem yearValueItem
-                                
-absoluteFeastTerm               -> armisticeDayItem
-absoluteFeastTerm               -> armisticeDayItem yearValueItem
-                                
-absoluteFeastTerm               -> assomptionDayItem
-absoluteFeastTerm               -> assomptionDayItem yearValueItem
-                                
-relativeFeastTerm               -> easterDayItem
-relativeFeastTerm               -> easterDayItem yearValueItem
-                                
-relativeFeastTerm               -> grandmotherDayItem
-relativeFeastTerm               -> grandmotherDayItem yearValueItem
+urgencyDateTerm                 : {<urgencyItem>}
 
-relativeFeastTerm               -> motherDayItem
-relativeFeastTerm               -> motherDayItem yearValueItem
-                                
-relativeFeastTerm               -> fatherDayItem
-relativeFeastTerm               -> fatherDayItem yearValueItem
-                                
-relativeFeastTerm               -> carnivalDayItem
-relativeFeastTerm               -> carnivalDayItem yearValueItem
-                                
-relativeFeastTerm               -> easterMondayDayItem
-relativeFeastTerm               -> easterMondayDayItem yearValueItem
-                                
-relativeFeastTerm               -> ascensionDayItem
-relativeFeastTerm               -> ascensionDayItem yearValueItem
-                                
-relativeFeastTerm               -> palmSundayDayItem
-relativeFeastTerm               -> palmSundayDayItem yearValueItem
-                                
-relativeFeastTerm               -> pentecostDayItem
-relativeFeastTerm               -> pentecostDayItem yearValueItem
-                                
-relativeFeastTerm               -> goodFridayItem
-relativeFeastTerm               -> goodFridayItem yearValueItem
+indeterminateDateTerm           : {<knownVerbItem><negationItem><whenItem>}
 
-eventTerm                       -> schoolStartItem
+pastVectorHourTerm              : {<pastVectorPreposition><distanceVectorHourTerm>}
+futureVectorHourTerm            : {<futureVectorPreposition><distanceVectorHourTerm>}
 
-futureVectorDateTerm            -> futureVectorPreposition distanceVectorDateTerm
-pastVectorDateTerm              -> pastVectorPreposition distanceVectorDateTerm
+pastVectorDateTerm              : {<pastVectorPrepositionItem><distanceVectorDateTerm>}
+futureVectorDateTerm            : {<futureVectorPrepositionItem><distanceVectorDateTerm>}
 
-futureVectorHourTerm            -> futureVectorPreposition distanceVectorHourTerm
-pastVectorHourTerm              -> pastVectorPreposition distanceVectorHourTerm
+vectorHourTerm                  : {<pastVectorHourTerm>}
+vectorHourTerm                  : {<futureVectorHourTerm>}
 
-distanceVectorDateTerm          -> numeralItem dayUnitItem
-distanceVectorDateTerm          -> numeralItem weekUnitItem
-distanceVectorDateTerm          -> numeralItem monthUnitItem
-distanceVectorDateTerm          -> numeralItem yearUnitItem
+vectorDateTerm                  : {<pastVectorDateTerm>}
+vectorDateTerm                  : {<futureVectorDateTerm>}
 
-distanceVectorHourTerm          -> numeralItem hourUnitItem
+modifiedDateTerm                : {<negativeDateTerm>}
+modifiedDateTerm                : {<constraintDateTerm>}
+modifiedDateTerm                : {<approximativeDateTerm>}
+modifiedDateTerm                : {<afterDateTerm>}
+modifiedDateTerm                : {<beforeDateTerm>}
 
-urgencyDateTerm                 -> urgencyItem
+unmodifiedHourTerm              : {<lunchTerm>}
+unmodifiedHourTerm              : {<dayPartTerm>}
+unmodifiedHourTerm              : {<hourNameTerm>}
+unmodifiedHourTerm              : {<atItem><numericHourTerm>}
 
-indeterminateDateTerm           -> knownVerbItem negationItem whenItem
+unmodifiedDateTerm              : {<feastTerm>}
+unmodifiedDateTerm              : {<dayAdverbTerm>}
+unmodifiedDateTerm              : {<calendarDateTerm>}
 
-numericHourTerm                 -> hourValueItem hourUnitItem
-numericHourTerm                 -> hourValueItem hourUnitItem minuteValueItem
-numericHourTerm                 -> hourValueItem hourUnitItem halfHourItem
-numericHourTerm                 -> hourValueItem hourUnitItem quarterToHourItem
-numericHourTerm                 -> hourValueItem hourUnitItem quarterPastHourItem
-numericHourTerm                 -> hourLetterItem hourUnitItem
-numericHourTerm                 -> hourLetterItem hourUnitItem halfHourItem
-numericHourTerm                 -> hourLetterItem hourUnitItem quarterToHourItem
-numericHourTerm                 -> hourLetterItem hourUnitItem quarterPastHourItem
+negativeDateTerm                : {<negativeItem><unmodifiedDateTerm>}
+constraintDateTerm              : {<constraintItem><unmodifiedDateTerm>}
+approximativeDateTerm           : {<approximativeItem><unmodifiedDateTerm>}
+afterDateTerm                   : {<afterItem><unmodifiedDateTerm>}
+beforeDateTerm                  : {<beforeItem><unmodifiedDateTerm>}
 
-lunchTerm                       -> breakfastTimeItem 
-lunchTerm                       -> lunchTimeItem
-lunchTerm                       -> teaTimeItem
-lunchTerm                       -> dinnerTimeItem
-lunchTerm                       -> happyHourItem
+hourTerm                        : {<indeterminateHourTerm>}
+hourTerm                        : {<vectorHourTerm>}
+hourTerm                        : {<modifiedHourTerm>}
+hourTerm                        : {<unmodifiedHourTerm>}
 
-hourNameTerm                    -> midnightItem
-hourNameTerm                    -> middayItem
-hourNameTerm                    -> midnightItem halfHourItem
-hourNameTerm                    -> midnightItem quarterToHourItem
-hourNameTerm                    -> midnightItem quarterPastHourItem
-hourNameTerm                    -> middayItem halfHourItem
-hourNameTerm                    -> middayItem quarterToHourItem
-hourNameTerm                    -> middayItem quarterPastHourItem
+dateTerm                        : {<indeterminateDateTerm>}
+dateTerm                        : {<urgencyDateTerm>}
+dateTerm                        : {<vectorDateTerm>}
+dateTerm                        : {<modifiedDateTerm>}
+dateTerm                        : {<unmodifiedDateTerm>}
 
-dayPartTerm                     -> morningTerm
-dayPartTerm                     -> aftertnoonTerm
-dayPartTerm                     -> eveningTerm
-dayPartTerm                     -> nightTerm
-                                
-morningTerm                     -> fullMorningTerm
-morningTerm                     -> startMorningTerm
-morningTerm                     -> midMorningTerm
-morningTerm                     -> endMorningTerm
-                                
-fullMorningTerm                 -> morningItem
-startMorningTerm                -> startItem morningItem
-midMorningTerm                  -> midItem morningItem
-endMorningTerm                  -> endItem morningItem
-                                
-aftertnoonTerm                  -> fullAfternoonTerm
-aftertnoonTerm                  -> midAfternoonTerm
-aftertnoonTerm                  -> startAftertnoonTerm
-aftertnoonTerm                  -> endAftertnoonTerm
-                                
-fullAfternoonTerm               -> aftertnoonItem
-startAftertnoonTerm             -> startItem aftertnoonItem
-midAfternoonTerm                -> midItem aftertnoonItem
-endAftertnoonTerm               -> endItem aftertnoonItem
+datetimeElementTerm             : {<dateTerm><hourTerm>?}
+datetimeElementTerm             : {<hourTerm><dateTerm>?}
 
-eveningTerm                     -> fullEveningTerm
-eveningTerm                     -> startEveningTerm
-eveningTerm                     -> midEveningTerm
-eveningTerm                     -> endEveningTerm
+datetimeAlternativeElementTerm  : {<datetimeElementTerm>*<alternativeItem><datetimeElementTerm>}
+datetimeGroupElementTerm        : {<datetimeElementTerm>*<groupItem><datetimeElementTerm>}
 
-fullEveningTerm                 -> eveningItem
-startEveningTerm                -> startItem eveningItem
-startEveningTerm                -> startOrdinalEveningItem partItem eveningItem
-midEveningTerm                  -> midItem eveningItem
-endEveningTerm                  -> endItem eveningItem
-endEveningTerm                  -> endOrdinalEveningItem partItem eveningItem
+datetimeGeneralUsageTerm        : {<datetimeAlternativeElementTerm>}
+datetimeGeneralUsageTerm        : {<datetimeGroupElementTerm>}
+datetimeGeneralUsageTerm        : {<datetimeElementTerm>}
 
-nightTerm                       -> fullNightTerm
-nightTerm                       -> startNightTerm
-nightTerm                       -> midNightTerm
-nightTerm                       -> endNightTerm
+returnDateTerm                  : {<returnItem><datetimeGeneralUsageTerm>}
+departureDateTerm               : {<departureItem><datetimeGeneralUsageTerm>}
 
-fullNightTerm                   -> nightItem
-startNightTerm                  -> startItem nightItem
-midNightTerm                    -> midItem nightItem
-endNightTerm                    -> endItem nightItem
+datetimeTravelTerm              : {<departureDateTerm><.*>*<returnDateTerm>}
+datetimeTravelTerm              : {<returnDateTerm>}
+datetimeTravelTerm              : {<departureDateTerm>}
 
-christmasDayItem                -> "Noël"
-womenDayItem                    -> "journée de la femme"
-workDayItem                     -> "fête du travail"
-nationalDayItem                 -> "fête nationale"
-valentineDayItem                -> "Saint-Valentin"
-stpatrickDayItem                -> "Saint-Patrick"
-musicDayItem                    -> "fête de la musique"
-halloweenDayItem                -> "Halloween"
-newYearEveDayItem               -> "Nouvel An"
-newYearDayItem                  -> "jour de l'An"
-toussaintDayItem                -> "Toussaint"
-armisticeDayItem                -> "armistice"
-assomptionDayItem               -> "Assomption"
+datetimeTerm                    : {<datetimeTravelTerm>}
+datetimeTerm                    : {<datetimeGeneralUsageTerm>}
 
-easterDayItem                   -> "Pâques"
-grandmotherDayItem              -> "fête des grands-mères"
-motherDayItem                   -> "fête des mères"
-fatherDayItem                   -> "fête des pères"
-carnivalDayItem                 -> "Carnaval" | "mardi gras"
-easterMondayDayItem             -> "lundi de Pâques"
-ascensionDayItem                -> "Ascension"
-palmSundayDayItem               -> "Rameaux" | "fête des Rameaux"
-pentecostDayItem                -> "Pentecôte"
-goodFridayItem                  -> "vendredi saint"
-
-schoolStartItem                 -> "rentrée"
-                                
-firstDayOfWeekItem              -> "lundi"
-secondDayOfWeekItem             -> "mardi"
-thirdDayOfWeekItem              -> "mercredi"
-fourthDayOfWeekItem             -> "jeudi"
-fifthDayOfWeekItem              -> "vendredi"
-sixthDayOfWeekItem              -> "samedi"
-seventhDayOfWeekItem            -> "dimanche"
-                                
-morningItem                     -> "matin" | "matinée"
-aftertnoonItem                  -> "après-midi"
-eveningItem                     -> "soirée" | "soir"
-nightItem                       -> "nuit"
-
-minuteValueItem                 -> "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | "21" | "22" | "23" | "24" | "25" | "26" | "27" | "28" | "29" | "30" | "31" | "32" | "33" | "34" | "35" | "36" | "37" | "38" | "39" | "40" | "41" | "42" | "43" | "44" | "45" | "46" | "47" | "48" | "49" | "50" | "51" | "52" | "53" | "54" | "55" | "56" | "57" | "58" | "59"
-hourValueItem                   -> "00" | "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | "21" | "22" | "23"
-hourLetterItem                  -> "une" | "deux" | "trois" | "quatre" | "cinq" | "six" | "sept" | "huit" | "neuf" | "dix"
-dayValueItem                    -> "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "1" | "1er" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | "21" | "22" | "23" | "24" | "25" | "26" | "27" | "28" | "29" | "30" | "31" 
-yearValueItem                   -> "2015" | "2016" | "2017"
-monthValueItem                  -> "janvier" | "février" | "mars" | "avril" | "mai" | "juin" | "juillet" | "août" | "septembre" | "octobre" | "novembre" | "décembre" | "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "10" | "11" | "12"
-ordinalItem                     -> "premier" | "deuxième" | "troisième" | "quatrième" | "dernier"
-numeralItem                     -> "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | "21" | "22" | "23" | "24" | "25" | "26" | "27" | "28" | "29" | "30" | "31" | "32" | "33" | "34" | "35" | "36" | "37" | "38" | "39" | "40" | "41" | "42" | "43" | "44" | "45" | "46" | "47" | "48" | "49" | "50" | "51" | "52" | "53" | "54" | "55" | "56" | "57" | "58" | "59"
-
-hourUnitItem                    -> "heure" | "h"
-dayUnitItem                     -> "jour"
-weekUnitItem                    -> "semaine"
-monthUnitItem                   -> "mois"
-yearUnitItem                    -> "an" | "année"
-
-tomorrowItem                    -> "demain"
-todayItem                       -> "aujourd'hui"
-yesterdayItem                   -> "hier"
-dayAfterTomorrowItem            -> "après-demain"
-
-middayItem                      -> "midi"
-midnightItem                    -> "minuit"
-happyHourItem                   -> "happy hour"
-hourLabelItem                   -> "heure"
-halfHourItem                    -> "et demi"
-quarterToHourItem               -> "moins le quart"
-quarterPastHourItem             -> "et quart"
-breakfastTimeItem               -> "petit-déjeuner"
-lunchTimeItem                   -> "déjeuner"
-teaTimeItem                     -> "goûter"
-dinnerTimeItem                  -> "souper" | "dîner"
-
-urgencyItem                     -> "urgence" | "urgent" | "maintenant" | "asap"
-
-departureItem                   -> "partir" | "aller" | "départ"
-returnItem                      -> "revenir" | "retour"
-
-beforeItem                      -> "avant"
-afterItem                       -> "après"
-approximativeItem               -> "vers" | "alentour"
-negativeItem                    -> "sauf"
-constraintItem                  -> "uniquement"
-currentItem                     -> "ce"
-alternativeItem                 -> "ou" | "/"
-groupItem                       -> "et"
-nextItem                        -> "prochain"
-startItem                       -> "début"
-midItem                         -> "milieu"
-endItem                         -> "fin"
-partItem                        -> "partie"
-startOrdinalEveningItem         -> "premier"
-endOrdinalEveningItem           -> "dernier" | "deuxième"
-pastVectorPreposition           -> "il y a"
-futureVectorPreposition         -> "dans"
-knownVerbItem                   -> "savoir"
-negationItem                    -> "pas"
-whenItem                        -> "quand"
-
+metadata                        : {<datetimeTerm>}
