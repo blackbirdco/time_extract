@@ -1,4 +1,4 @@
-nltk==3.2.1
+nltk==3.4.5
 cherrypy==6.0.1
 dateparser==0.3.5
 rollbar==0.13.2
